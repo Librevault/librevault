@@ -41,6 +41,12 @@ if(NOT OS_LINUX)
 	list(REMOVE_ITEM MAIN_SRCS ${LINUX_SRCS})
 endif()
 
+# FreeBSD sources
+if(NOT ${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
+        file(GLOB_RECURSE FREEBSD_SRCS "*.bsd.cpp")
+        list(REMOVE_ITEM MAIN_SRCS ${FREEBSD_SRCS})
+endif()
+
 # OS X sources
 if(OS_MAC)
 	file(GLOB_RECURSE MAIN_MMS "*.mm")
